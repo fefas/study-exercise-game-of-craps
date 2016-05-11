@@ -4,6 +4,7 @@ public class CrapsGame {
 	private Dice pairOfDice;
 	private boolean win;
 	private int numRolls;
+	private boolean finished;
 
 	public CrapsGame() {
 		this(new Dice());
@@ -17,6 +18,7 @@ public class CrapsGame {
 	public void reset() {
 		this.win = false;
 		this.numRolls = 0;
+		finished = false;
 	}
 
 	public void play() {
@@ -26,6 +28,7 @@ public class CrapsGame {
 
 		if (7 == sumOfFaces || 11 == sumOfFaces) {
 			this.win = true;
+			finished = true;
 		}
 	}
 
@@ -35,5 +38,9 @@ public class CrapsGame {
 
 	public int getNumRolls() {
 		return this.numRolls;
+	}
+
+	public boolean hasFinished() {
+		return finished;
 	}
 }

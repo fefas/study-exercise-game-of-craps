@@ -24,7 +24,9 @@ public class CrapsGameTest {
 
 		game.play();
 
+		assertTrue(game.hasFinished());
 		assertTrue(game.getWin());
+		assertEquals(1, game.getNumRolls());
 	}
 
 	@Test
@@ -33,7 +35,9 @@ public class CrapsGameTest {
 
 		game.play();
 
+		assertTrue(game.hasFinished());
 		assertTrue(game.getWin());
+		assertEquals(1, game.getNumRolls());
 	}
 
 	@Test
