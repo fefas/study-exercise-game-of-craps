@@ -14,7 +14,7 @@ public class CrapsGameTest {
 		}
 
 		public int getSumOfFaces() {
-			return this.sumOfFaces;
+			return sumOfFaces;
 		}
 	}
 

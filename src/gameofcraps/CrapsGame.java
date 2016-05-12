@@ -11,33 +11,33 @@ public class CrapsGame {
 	}
 
 	public CrapsGame(Dice dice) {
-		this.pairOfDice = dice;
-		this.reset();
+		pairOfDice = dice;
+		reset();
 	}
 
 	public void reset() {
-		this.win = false;
-		this.numRolls = 0;
 		finished = false;
+		win = false;
+		numRolls = 0;
 	}
 
 	public void play() {
-		this.pairOfDice.roll();
-		this.numRolls++;
-		int sumOfFaces = this.pairOfDice.getSumOfFaces();
+		pairOfDice.roll();
+		numRolls++;
+		int sumOfFaces = pairOfDice.getSumOfFaces();
 
 		if (7 == sumOfFaces || 11 == sumOfFaces) {
-			this.win = true;
 			finished = true;
+			win = true;
 		}
 	}
 
 	public boolean getWin() {
-		return this.win;
+		return win;
 	}
 
 	public int getNumRolls() {
-		return this.numRolls;
+		return numRolls;
 	}
 
 	public boolean hasFinished() {
