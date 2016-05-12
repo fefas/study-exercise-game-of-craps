@@ -2,6 +2,9 @@ package gameofcraps;
 
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 
 public class CrapsGameTest {
@@ -15,6 +18,20 @@ public class CrapsGameTest {
 
 		public int getSumOfFaces() {
 			return sumOfFaces;
+		}
+	}
+
+	private class SequencedDice extends Dice {
+		private final List<Integer> sequencedResults;
+		private int position;
+
+		public SequencedDice(Integer... results) {
+			sequencedResults = Arrays.asList(results);
+			position = 0;
+		}
+
+		public int getSumOfFaces() {
+			return sequencedResults.get(position++);
 		}
 	}
 
@@ -71,5 +88,16 @@ public class CrapsGameTest {
 		assertTrue(game.hasFinished());
 		assertFalse(game.getWin());
 		assertEquals(1, game.getNumRolls());
+	}
+
+	@Test
+	public void winsIfNthRollIsEqualToComingOutRoll() {
+		CrapsGame game = new CrapsGame(new SequencedDice(4, 5, 4));
+
+		game.play();
+
+		assertTrue(game.hasFinished());
+		assertTrue(game.getWin());
+		assertEquals(3, game.getNumRolls());
 	}
 }

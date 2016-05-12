@@ -35,7 +35,20 @@ public class CrapsGame {
 		if (2 == sumOfFaces || 3 == sumOfFaces || 12 == sumOfFaces) {
 			finished = true;
 			win = false;
+			return;
 		}
+
+		final int comingOutRoll = sumOfFaces;
+
+		do {
+			pairOfDice.roll();
+			numRolls++;
+			sumOfFaces = pairOfDice.getSumOfFaces();
+			System.out.println(sumOfFaces);
+		} while (comingOutRoll != sumOfFaces);
+
+		finished = true;
+		win = true;
 	}
 
 	public boolean getWin() {
