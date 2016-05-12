@@ -29,6 +29,12 @@ public class CrapsGame {
 		if (7 == sumOfFaces || 11 == sumOfFaces) {
 			finished = true;
 			win = true;
+			return;
+		}
+
+		if (2 == sumOfFaces || 3 == sumOfFaces || 12 == sumOfFaces) {
+			finished = true;
+			win = false;
 		}
 	}
 
