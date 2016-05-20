@@ -44,7 +44,6 @@ public class CrapsGame {
 			pairOfDice.roll();
 			numRolls++;
 			sumOfFaces = pairOfDice.getSumOfFaces();
-			System.out.println(sumOfFaces);
 		} while (comingOutRoll != sumOfFaces);
 
 		finished = true;
