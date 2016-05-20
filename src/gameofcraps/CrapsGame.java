@@ -44,6 +44,12 @@ public class CrapsGame {
 			pairOfDice.roll();
 			numRolls++;
 			sumOfFaces = pairOfDice.getSumOfFaces();
+
+			if (7 == sumOfFaces) {
+				finished = true;
+				win = false;
+				return;
+			}
 		} while (comingOutRoll != sumOfFaces);
 
 		finished = true;
