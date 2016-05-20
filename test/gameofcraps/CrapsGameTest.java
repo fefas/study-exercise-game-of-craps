@@ -21,20 +21,6 @@ public class CrapsGameTest {
 		}
 	}
 
-	private class SequencedDice extends Dice {
-		private final List<Integer> sequencedResults;
-		private int position;
-
-		public SequencedDice(Integer... results) {
-			sequencedResults = Arrays.asList(results);
-			position = 0;
-		}
-
-		public int getSumOfFaces() {
-			return sequencedResults.get(position++);
-		}
-	}
-
 	@Test
 	public void winsIfComingOutRollIsSeven() {
 		CrapsGame game = new CrapsGame(new DeterministicDice(7));
@@ -88,16 +74,5 @@ public class CrapsGameTest {
 		assertTrue(game.hasFinished());
 		assertFalse(game.getWin());
 		assertEquals(1, game.getNumRolls());
-	}
-
-	@Test
-	public void winsIfNthRollIsEqualToComingOutRoll() {
-		CrapsGame game = new CrapsGame(new SequencedDice(4, 5, 4));
-
-		game.play();
-
-		assertTrue(game.hasFinished());
-		assertTrue(game.getWin());
-		assertEquals(3, game.getNumRolls());
 	}
 }
