@@ -8,13 +8,12 @@ public class Dice {
 		return (int) (6 * Math.random() + 1);
 	}
 
-	public Dice() {
-	}
-
 	public int getSumOfFaces() {
-		return -1;
+		return face1 + face2;
 	}
 
 	public void roll() {
+		face1 = getRandInt1To6();
+		face2 = getRandInt1To6();
 	}
 }
