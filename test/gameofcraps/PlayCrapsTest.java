@@ -13,8 +13,8 @@ public class PlayCrapsTest {
 
 		GameStatistics statistics = playing.play(numGames);
 
-		assertEquals(numGames, statistics.numberOfGamesPlayed);
-		assertTrue(statistics.numberOfGamesWon <= numGames);
+		assertEquals(numGames, statistics.gamesPlayed);
+		assertTrue(statistics.gamesWon <= numGames);
 	}
 
 }
