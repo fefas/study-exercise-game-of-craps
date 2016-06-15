@@ -11,6 +11,10 @@ public class GameStatistics {
 
 	public GameStatistics(int gamesPlayed, int gamesWon, int maximalGameLength, int totalRolls, int winsOnComingOutRoll,
 			int lossesOnComingOutRoll) {
+		if (gamesPlayed < 1) {
+			throw new InvalidGameMetricsException("Number of games played must be greater than zero");
+		}
+
 		this.gamesPlayed = gamesPlayed;
 		this.gamesWon = gamesWon;
 		this.maximalGameLength = maximalGameLength;
