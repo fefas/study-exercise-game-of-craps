@@ -25,10 +25,10 @@ public class GameStatisticsTest {
 	}
 
 	@Test
-	public void avarageOfRollsPerGame() {
-		double avarageOfRollsPerGame = statistics.avarageOfRollsPerGame();
+	public void averageOfRollsPerGame() {
+		double averageOfRollsPerGame = statistics.averageOfRollsPerGame();
 
-		assertThat(avarageOfRollsPerGame, closeTo(5.0, TOLERANCE));
+		assertThat(averageOfRollsPerGame, closeTo(5.0, TOLERANCE));
 	}
 
 	@Test

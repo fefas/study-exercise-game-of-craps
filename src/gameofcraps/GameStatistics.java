@@ -23,7 +23,7 @@ public class GameStatistics {
 		return gamesWon / (double) gamesPlayed;
 	}
 
-	public double avarageOfRollsPerGame() {
+	public double averageOfRollsPerGame() {
 		return totalRolls / (double) gamesPlayed;
 	}
 
