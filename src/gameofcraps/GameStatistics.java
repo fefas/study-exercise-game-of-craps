@@ -14,6 +14,34 @@ public class GameStatistics {
 		if (gamesPlayed < 1) {
 			throw new InvalidGameMetricsException("Number of games played must be greater than zero");
 		}
+		if (gamesWon > gamesPlayed) {
+			throw new InvalidGameMetricsException("Number of games won must be less than or equal to games played");
+		}
+		if (gamesWon < 0) {
+			throw new InvalidGameMetricsException("Number of games won must be greater than or equal to zero");
+		}
+		if (maximalGameLength < 1) {
+			throw new InvalidGameMetricsException("The maximal game length must be greater than or equal to one");
+		}
+		if (totalRolls < gamesPlayed) {
+			throw new InvalidGameMetricsException("The total rolls must be greater than or equal to games played");
+		}
+		if (winsOnComingOutRoll < 0) {
+			throw new InvalidGameMetricsException(
+					"Number of wins on coming out roll must be greater than or equal to zero");
+		}
+		if (winsOnComingOutRoll > gamesWon) {
+			throw new InvalidGameMetricsException(
+					"Number of wins on coming out roll must be less than or equal to games won");
+		}
+		if (lossesOnComingOutRoll < 0) {
+			throw new InvalidGameMetricsException(
+					"Number of losses on coming out roll must be greater than or equal to zero");
+		}
+		if (lossesOnComingOutRoll > (gamesPlayed - gamesWon)) {
+			throw new InvalidGameMetricsException(
+					"Number of losses on coming out roll must be less than or equal to games lost");
+		}
 
 		this.gamesPlayed = gamesPlayed;
 		this.gamesWon = gamesWon;
