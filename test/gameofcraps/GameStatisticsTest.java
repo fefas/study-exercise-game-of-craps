@@ -11,17 +11,16 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 public class GameStatisticsTest {
+	private static final double TOLERANCE = 1e-6;
+	private static final int GAMES_PLAYED = 100;
+	private static final int GAMES_WON = 50;
+	private static final int MAXIMAL_GAME_LENGTH = 10;
+	private static final int TOTAL_ROLLS = 500;
+	private static final int WINS_ON_COMING_OUT_ROLL = 10;
+	private static final int LOSSES_ON_COMING_OUT_ROLL = 10;
 
-	private final double TOLERANCE = 1e-6;
-	private int gamesPlayed = 100;
-	private int gamesWon = 50;
-	private int maximalGameLength = 10;
-	private int totalRolls = 500;
-	private int winsOnComingOutRoll = 10;
-	private int lossesOnComingOutRoll = 10;
-
-	private GameStatistics statistics = new GameStatistics(gamesPlayed, gamesWon, maximalGameLength, totalRolls,
-			winsOnComingOutRoll, lossesOnComingOutRoll);
+	private GameStatistics statistics = new GameStatistics(GAMES_PLAYED, GAMES_WON, MAXIMAL_GAME_LENGTH, TOTAL_ROLLS,
+			WINS_ON_COMING_OUT_ROLL, LOSSES_ON_COMING_OUT_ROLL);
 
 	@Rule
 	public ExpectedException thrown = ExpectedException.none();
