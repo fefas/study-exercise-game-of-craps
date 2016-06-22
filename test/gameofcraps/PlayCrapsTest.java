@@ -31,6 +31,21 @@ public class PlayCrapsTest {
 			{
 				new SequencedDice(2),
 				new GameStatistics(1, 0, 1, 1, 0, 1)
+			},
+			{
+				new SequencedDice(
+						2,
+						7
+				),
+				new GameStatistics(2, 1, 1, 2, 1, 1)
+			},
+			{
+				new SequencedDice(
+						2,
+						4, 6, 5, 8, 3, 7,
+						9, 5, 12, 9
+				),
+				new GameStatistics(3, 1, 6, 11, 0, 1)
 			}
 		});
 	}
@@ -44,7 +59,7 @@ public class PlayCrapsTest {
 	}
 
 	@Test
-	public void statisticsAreCorrectWhenSingleGameLost() {
+	public void computedStatisticsEqualExpectedStatisticsForGivenRolls() {
 		final int numGamesToPlay = expectedStatistics.gamesPlayed;
 		PlayCraps playing = new PlayCraps(dice);
 

@@ -22,7 +22,7 @@ public class PlayCraps {
 		numGames = Integer.parseInt(args[0]);
 	}
 
-	public GameStatistics play(int numGames) {
+	public GameStatistics play(int numGamesToPlay) {
 		CrapsGame game = new CrapsGame(dice);
 		int gamesWon = 0;
 		int maximalGameLength = 0;
@@ -30,25 +30,29 @@ public class PlayCraps {
 		int winsOnComingOutRoll = 0;
 		int lossesOnComingOutRoll = 0;
 
-		game.play();
+		for (int numGamesPlayed = 0; numGamesPlayed < numGamesToPlay; numGamesPlayed++) {
+			game.play();
 
-		if (game.getWin()) {
-			gamesWon++;
-			if (game.getNumRolls() == 1) {
-				winsOnComingOutRoll++;
+			if (game.getWin()) {
+				gamesWon++;
+				if (game.getNumRolls() == 1) {
+					winsOnComingOutRoll++;
+				}
+			} else {
+				if (game.getNumRolls() == 1) {
+					lossesOnComingOutRoll++;
+				}
 			}
-		} else {
-			if (game.getNumRolls() == 1) {
-				lossesOnComingOutRoll++;
+
+			totalRolls += game.getNumRolls();
+			if (game.getNumRolls() > maximalGameLength) {
+				maximalGameLength = game.getNumRolls();
 			}
+
+			game.reset();
 		}
 
-		totalRolls += game.getNumRolls();
-		if (game.getNumRolls() > maximalGameLength) {
-			maximalGameLength = game.getNumRolls();
-		}
-
-		return new GameStatistics(numGames, gamesWon, maximalGameLength, totalRolls, winsOnComingOutRoll,
+		return new GameStatistics(numGamesToPlay, gamesWon, maximalGameLength, totalRolls, winsOnComingOutRoll,
 				lossesOnComingOutRoll);
 	}
 }
